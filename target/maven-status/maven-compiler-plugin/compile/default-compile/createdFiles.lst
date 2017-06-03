@@ -1,1 +1,3 @@
-com/it355/draganmitic/HelloController.class
+com/it355/draganmitic/controller/HelloController.class
+com/it355/draganmitic/controller/HotelController.class
+com/it355/draganmitic/model/HotelRoom.class
