@@ -1,6 +1,7 @@
 com/it355/draganmitic/controller/UserController.class
 com/it355/draganmitic/controller/HelloController.class
 com/it355/draganmitic/model/User.class
+com/it355/draganmitic/controller/AccountController.class
 com/it355/draganmitic/dao/impl/UserDaoImpl.class
 com/it355/draganmitic/dao/UserDao.class
 com/it355/draganmitic/controller/HotelController.class
