@@ -8,7 +8,7 @@
     
    <display-name>Spring MVC Application</display-name>
    
-   <servlet>
+    <servlet>
       <servlet-name>DraganMitic</servlet-name>
       <servlet-class>
          org.springframework.web.servlet.DispatcherServlet
@@ -16,9 +16,26 @@
       <load-on-startup>1</load-on-startup>
     </servlet>
     
+    <servlet>
+      <servlet-name>flow</servlet-name>
+      <servlet-class>
+         org.springframework.web.servlet.DispatcherServlet
+      </servlet-class>
+<!--      <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>flow-definition.xml</param-value>
+      </init-param>-->
+      <load-on-startup>2</load-on-startup>
+    </servlet>
+    
     <servlet-mapping>
        <servlet-name>DraganMitic</servlet-name>
        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>flow</servlet-name>
+        <url-pattern>/flow/*</url-pattern>
     </servlet-mapping>
     
     <filter>
