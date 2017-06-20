@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
+    
+    <var name="addAccountBean" class="com.it355.draganmitic.service.AddAccountBean" />
+    
+    <view-state id="displayAddAccountView" view="../jsp/add-account/page.jsp" model="addAccountBean">
+        <transition on="performAddAccount" to="performAddAccountAction" />
+    </view-state>
+    
+    <action-state id="performAddAccountAction">
+        <evaluate expression="addAccountService.validateAccount(addAccountBean)" />
+        <transition on="true" to="displaySuccess" />
+        <transition on="false" to="displayError" />
+    </action-state>
+    
+    <view-state id="displaySuccess" view="../jsp/add-account/success.jsp" model="addAccountBean"/>
+    <view-state id="displayError" view="../jsp/add-account/failure.jsp" />
+</flow>

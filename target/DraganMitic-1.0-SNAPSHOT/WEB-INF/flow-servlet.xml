@@ -14,18 +14,18 @@
     <context:component-scan base-package="com.it355.draganmitic.service" />
     
     <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-        <property name="flowRegistry" ref="loginRegistry" />
+        <property name="flowRegistry" ref="addAccountRegistry" />
         <property name="order" value="-1" />
     </bean>
     
     <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
-        <property name="flowExecutor" ref="loginExecutor" />
+        <property name="flowExecutor" ref="addAccountExecutor" />
     </bean>
     
-    <flow:flow-executor id="loginExecutor" flow-registry="loginRegistry" />
+    <flow:flow-executor id="addAccountExecutor" flow-registry="addAccountRegistry" />
     
-    <flow:flow-registry id="loginRegistry">
-        <flow:flow-location id="login" path="WEB-INF/flows/login.xml" />
+    <flow:flow-registry id="addAccountRegistry">
+        <flow:flow-location id="add-account" path="WEB-INF/flows/add-account.xml" />
     </flow:flow-registry>
     
 </beans>
