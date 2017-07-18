@@ -27,7 +27,17 @@
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
     
-    <bean id="userDao" class="com.it355.draganmitic.dao.impl.UserDaoImpl" />
+    <bean id="userDao" class="com.it355.draganmitic.dao.impl.UserDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <bean id="userService" class="com.it355.draganmitic.service.impl.UserServiceImpl" />
+    
+    <bean id="accountTypeDao" class="com.it355.draganmitic.dao.impl.AccountTypeDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <bean id="accountTypeService" class="com.it355.draganmitic.service.impl.AccountTypeServiceImpl" />
     
     <bean id="logAspect" class="com.it355.draganmitic.aspect.InterceptorLog" />
     
@@ -45,6 +55,10 @@
                 <value>logPointcutAdvisor</value>
             </list>
         </property>
-    </bean> 
+    </bean>
+    
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
    
 </beans>

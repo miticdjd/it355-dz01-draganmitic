@@ -1,9 +1,12 @@
 package com.it355.draganmitic.model;
 
+import java.io.Serializable;
+
 /**
  * User model
  */
-public class User {
+@SuppressWarnings("serial")
+public class User implements Serializable {
     
     private Integer id;
     private String firstname;
@@ -40,6 +43,11 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    @Override
+    public String toString() {
+        return "User [id=" + this.id + ", firstname=" + this.firstname + ", lastname=" + this.lastname + "]";
     }
     
 }
