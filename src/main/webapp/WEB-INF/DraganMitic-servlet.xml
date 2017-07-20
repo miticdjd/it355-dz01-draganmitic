@@ -2,6 +2,7 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
    xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xmlns:flow="http://www.springframework.org/schema/webflow-config"
    xsi:schemaLocation="http://www.springframework.org/schema/beans 
@@ -9,7 +10,11 @@
                        http://www.springframework.org/schema/context 
                        http://www.springframework.org/schema/context/spring-context-3.0.xsd 
                        http://www.springframework.org/schema/webflow-config 
-                       http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd">
+                       http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd
+                       http://www.springframework.org/schema/mvc
+                       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    
+   <mvc:annotation-driven />
    
    <context:component-scan base-package="com.it355.draganmitic" />
      
@@ -38,6 +43,18 @@
     </bean>
     
     <bean id="accountTypeService" class="com.it355.draganmitic.service.impl.AccountTypeServiceImpl" />
+    
+    <bean id="categoryDao" class="com.it355.draganmitic.dao.impl.CategoryDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <bean id="categoryService" class="com.it355.draganmitic.service.impl.CategoryServiceImpl" />
+    
+    <bean id="accountDao" class="com.it355.draganmitic.dao.impl.AccountDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <bean id="accountService" class="com.it355.draganmitic.service.impl.AccountServiceImpl" />
     
     <bean id="logAspect" class="com.it355.draganmitic.aspect.InterceptorLog" />
     
